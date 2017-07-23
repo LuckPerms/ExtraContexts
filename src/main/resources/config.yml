@@ -1,0 +1,4 @@
+# ExtraContexts Configuration
+# Set a provider to true to enable it.
+
+worldguard: true

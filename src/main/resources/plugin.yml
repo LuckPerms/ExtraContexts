@@ -1,0 +1,7 @@
+name: ${project.name}
+version: ${project.version}
+author: Luck
+
+main: me.lucko.extracontexts.ExtraContextsPlugin
+depend: [LuckPerms]
+softdepend: [WorldGuard]
