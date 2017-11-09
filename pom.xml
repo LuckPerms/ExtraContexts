@@ -62,7 +62,7 @@
         <dependency>
             <groupId>me.lucko.luckperms</groupId>
             <artifactId>luckperms-api</artifactId>
-            <version>3.2</version>
+            <version>4.0</version>
             <scope>provided</scope>
         </dependency>
         <!-- Bukkit -->
