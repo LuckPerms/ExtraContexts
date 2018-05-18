@@ -14,7 +14,7 @@ This plugin (ExtraContexts) provides a number of contexts for Bukkit servers. Th
 * To use it, just add it to your plugins folder and enable the contexts you want to use.
 
 ##### How do I check if it's working?
-A players "current contexts" are listed when you run `/lp user <user> info`.
+A player's "current contexts" are listed when you run `/lp user <user> info`.
 
 
 ## Contexts
