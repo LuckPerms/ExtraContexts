@@ -6,10 +6,11 @@
 
     <groupId>me.lucko</groupId>
     <artifactId>extracontexts</artifactId>
-    <version>3.2</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>ExtraContexts</name>
+    <description>Provides a number of extra contexts for LuckPerms.</description>
 
     <licenses>
         <license>

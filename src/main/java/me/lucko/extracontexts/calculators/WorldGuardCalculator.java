@@ -8,6 +8,7 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import me.lucko.luckperms.api.context.ContextCalculator;
 import me.lucko.luckperms.api.context.MutableContextSet;
 
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
@@ -18,11 +19,12 @@ public class WorldGuardCalculator implements ContextCalculator<Player> {
     @Nonnull
     @Override
     public MutableContextSet giveApplicableContext(@Nonnull Player subject, @Nonnull MutableContextSet accumulator) {
-        if (subject.getWorld() == null) {
+        World world = subject.getWorld();
+        if (world == null) {
             return accumulator;
         }
 
-        RegionManager regionManager = WGBukkit.getPlugin().getRegionManager(subject.getWorld());
+        RegionManager regionManager = WGBukkit.getPlugin().getRegionManager(world);
         if (regionManager == null) {
             return accumulator;
         }
