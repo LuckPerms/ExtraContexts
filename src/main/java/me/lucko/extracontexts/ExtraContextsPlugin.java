@@ -30,7 +30,7 @@ public class ExtraContextsPlugin extends JavaPlugin {
 
     private void register(String option, String requiredPlugin, Supplier<ContextCalculator<Player>> calculatorSupplier) {
         if (getConfig().getBoolean(option, false)) {
-            if (requiredPlugin != null && !getServer().getPluginManager().isPluginEnabled(requiredPlugin)) {
+            if (requiredPlugin != null && getServer().getPluginManager().getPlugin(requiredPlugin) == null) {
                 getLogger().info(requiredPlugin + " not present. Skipping registration of '" + option + "'...");
             } else {
                 getLogger().info("Registering '" + option + "' calculator.");
