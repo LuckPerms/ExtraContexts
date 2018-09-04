@@ -1,6 +1,6 @@
 package me.lucko.extracontexts.calculators;
 
-import com.sk89q.worldguard.bukkit.WGBukkit;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
@@ -24,7 +24,7 @@ public class WorldGuardCalculator implements ContextCalculator<Player> {
             return accumulator;
         }
 
-        RegionManager regionManager = WGBukkit.getPlugin().getRegionManager(world);
+        RegionManager regionManager = WorldGuardPlugin.inst().getRegionManager(world);
         if (regionManager == null) {
             return accumulator;
         }
