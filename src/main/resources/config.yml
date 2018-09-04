@@ -24,3 +24,7 @@ gamemode: false
 #
 # e.g. dimension=nether
 dimension: false
+
+placeholderapi: false
+placeholderapi-placeholders:
+  allowflight: "%player_allow_flight%"

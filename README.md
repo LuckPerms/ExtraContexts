@@ -43,3 +43,17 @@ e.g.
 > dimension=nether
 
 ___
+#### PlaceholderAPI
+Returns the result for a defined set of placeholders.
+
+e.g.
+
+**config:**
+```yml
+placeholderapi-placeholders:
+  allowflight: "%player_allow_flight%"
+```
+
+> allowflight=true
+
+___

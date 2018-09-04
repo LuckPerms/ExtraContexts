@@ -2,6 +2,7 @@ package me.lucko.extracontexts;
 
 import me.lucko.extracontexts.calculators.DimensionCalculator;
 import me.lucko.extracontexts.calculators.GamemodeCalculator;
+import me.lucko.extracontexts.calculators.PlaceholderApiCalculator;
 import me.lucko.extracontexts.calculators.WorldGuardCalculator;
 import me.lucko.luckperms.api.LuckPermsApi;
 import me.lucko.luckperms.api.context.ContextCalculator;
@@ -26,6 +27,7 @@ public class ExtraContextsPlugin extends JavaPlugin {
         register("worldguard", "WorldGuard", WorldGuardCalculator::new);
         register("gamemode", null, GamemodeCalculator::new);
         register("dimension", null, DimensionCalculator::new);
+        register("placeholderapi", "PlaceholderAPI", () -> new PlaceholderApiCalculator(getConfig().getConfigurationSection("placeholderapi-placeholders")));
     }
 
     private void register(String option, String requiredPlugin, Supplier<ContextCalculator<Player>> calculatorSupplier) {
