@@ -11,8 +11,6 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
 public class PlaceholderApiCalculator implements ContextCalculator<Player> {
 
     private final Map<String, String> placeholders;
@@ -25,9 +23,8 @@ public class PlaceholderApiCalculator implements ContextCalculator<Player> {
         this.placeholders = map.build();
     }
 
-    @Nonnull
     @Override
-    public MutableContextSet giveApplicableContext(@Nonnull Player subject, @Nonnull MutableContextSet accumulator) {
+    public MutableContextSet giveApplicableContext(Player subject, MutableContextSet accumulator) {
         for (Map.Entry<String, String> placeholder : this.placeholders.entrySet()) {
             String result = PlaceholderAPI.setPlaceholders(subject, placeholder.getValue());
             accumulator.add(placeholder.getKey(), result);
