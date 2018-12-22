@@ -27,6 +27,9 @@ public class PlaceholderApiCalculator implements ContextCalculator<Player> {
     public MutableContextSet giveApplicableContext(Player subject, MutableContextSet accumulator) {
         for (Map.Entry<String, String> placeholder : this.placeholders.entrySet()) {
             String result = PlaceholderAPI.setPlaceholders(subject, placeholder.getValue());
+            if (result == null || result.trim().isEmpty()) {
+                continue;
+            }
             accumulator.add(placeholder.getKey(), result);
         }
         return accumulator;
