@@ -1,7 +1,7 @@
 package me.lucko.extracontexts.calculators;
 
-import me.lucko.luckperms.api.context.ContextCalculator;
-import me.lucko.luckperms.api.context.MutableContextSet;
+import net.luckperms.api.context.ContextCalculator;
+import net.luckperms.api.context.ContextConsumer;
 
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -10,11 +10,10 @@ public class DimensionCalculator implements ContextCalculator<Player> {
     private static final String KEY = "dimension";
 
     @Override
-    public MutableContextSet giveApplicableContext(Player subject, MutableContextSet accumulator) {
-        World world = subject.getWorld();
+    public void calculate(Player player, ContextConsumer contextConsumer) {
+        World world = player.getWorld();
         if (world != null) {
-            accumulator.add(KEY, world.getEnvironment().name().toLowerCase());
+            contextConsumer.accept(KEY, world.getEnvironment().name().toLowerCase());
         }
-        return accumulator;
     }
 }

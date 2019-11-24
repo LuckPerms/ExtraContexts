@@ -1,7 +1,7 @@
 package me.lucko.extracontexts.calculators;
 
-import me.lucko.luckperms.api.context.ContextCalculator;
-import me.lucko.luckperms.api.context.MutableContextSet;
+import net.luckperms.api.context.ContextCalculator;
+import net.luckperms.api.context.ContextConsumer;
 
 import org.bukkit.entity.Player;
 import org.codemc.worldguardwrapper.WorldGuardWrapper;
@@ -15,12 +15,11 @@ public class WorldGuardCalculator implements ContextCalculator<Player> {
     private final WorldGuardWrapper worldGuard = WorldGuardWrapper.getInstance();
 
     @Override
-    public MutableContextSet giveApplicableContext(Player subject, MutableContextSet accumulator) {
-        Set<IWrappedRegion> regions = this.worldGuard.getRegions(subject.getLocation());
+    public void calculate(Player player, ContextConsumer contextConsumer) {
+        Set<IWrappedRegion> regions = this.worldGuard.getRegions(player.getLocation());
         for (IWrappedRegion region : regions) {
-            accumulator.add(KEY, region.getId());
+            contextConsumer.accept(KEY, region.getId());
         }
-        return accumulator;
     }
 
 }
