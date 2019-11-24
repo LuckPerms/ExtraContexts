@@ -4,20 +4,19 @@ import me.lucko.extracontexts.calculators.DimensionCalculator;
 import me.lucko.extracontexts.calculators.GamemodeCalculator;
 import me.lucko.extracontexts.calculators.PlaceholderApiCalculator;
 import me.lucko.extracontexts.calculators.WorldGuardCalculator;
-import me.lucko.luckperms.api.LuckPermsApi;
-import me.lucko.luckperms.api.context.ContextCalculator;
-
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.context.ContextCalculator;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.function.Supplier;
 
 public class ExtraContextsPlugin extends JavaPlugin {
-    private LuckPermsApi luckPerms;
+    private LuckPerms luckPerms;
 
     @Override
     public void onEnable() {
-        this.luckPerms = getServer().getServicesManager().load(LuckPermsApi.class);
+        this.luckPerms = getServer().getServicesManager().load(LuckPerms.class);
         if (this.luckPerms == null) {
             throw new IllegalStateException("LuckPerms API not loaded.");
         }
@@ -36,7 +35,7 @@ public class ExtraContextsPlugin extends JavaPlugin {
                 getLogger().info(requiredPlugin + " not present. Skipping registration of '" + option + "'...");
             } else {
                 getLogger().info("Registering '" + option + "' calculator.");
-                this.luckPerms.registerContextCalculator(calculatorSupplier.get());
+                this.luckPerms.getContextManager().registerCalculator(calculatorSupplier.get());
             }
         }
     }

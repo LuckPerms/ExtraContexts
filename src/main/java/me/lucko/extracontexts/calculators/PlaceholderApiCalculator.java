@@ -1,11 +1,9 @@
 package me.lucko.extracontexts.calculators;
 
 import com.google.common.collect.ImmutableMap;
-
 import me.clip.placeholderapi.PlaceholderAPI;
-import me.lucko.luckperms.api.context.ContextCalculator;
-import me.lucko.luckperms.api.context.MutableContextSet;
-
+import net.luckperms.api.context.ContextCalculator;
+import net.luckperms.api.context.ContextConsumer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
@@ -24,14 +22,14 @@ public class PlaceholderApiCalculator implements ContextCalculator<Player> {
     }
 
     @Override
-    public MutableContextSet giveApplicableContext(Player subject, MutableContextSet accumulator) {
+    public void calculate(Player target, ContextConsumer consumer) {
         for (Map.Entry<String, String> placeholder : this.placeholders.entrySet()) {
-            String result = PlaceholderAPI.setPlaceholders(subject, placeholder.getValue());
+            String result = PlaceholderAPI.setPlaceholders(target, placeholder.getValue());
             if (result == null || result.trim().isEmpty()) {
                 continue;
             }
-            accumulator.add(placeholder.getKey(), result);
+            consumer.accept(placeholder.getKey(), result);
         }
-        return accumulator;
     }
+
 }
