@@ -25,6 +25,12 @@ gamemode: false
 # e.g. dimension=nether
 dimension: false
 
+# Provides the 'team' context.
+# Returns the name of the team the players is in.
+#
+# e.g. team=pvp-blue
+team: false
+
 placeholderapi: false
 placeholderapi-placeholders:
   allowflight: "%player_allow_flight%"
