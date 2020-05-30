@@ -5,3 +5,9 @@ main: me.lucko.extracontexts.ExtraContextsPlugin
 depend: [LuckPerms]
 softdepend: [WorldGuard, PlaceholderAPI]
 api-version: 1.13
+
+commands:
+  extracontexts-reload:
+    description: Reloads the configuration
+    permission: extracontexts.reload
+    usage: /extracontexts-reload
