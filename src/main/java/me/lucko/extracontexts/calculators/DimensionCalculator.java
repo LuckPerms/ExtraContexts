@@ -4,6 +4,7 @@ import net.luckperms.api.context.ContextCalculator;
 import net.luckperms.api.context.ContextConsumer;
 import net.luckperms.api.context.ContextSet;
 import net.luckperms.api.context.ImmutableContextSet;
+
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
@@ -26,5 +27,8 @@ public class DimensionCalculator implements ContextCalculator<Player> {
         }
         return builder.build();
     }
+
+    // No need to add a signalContextUpdate listener here, LuckPerms already triggers this
+    // on world change.
 
 }

@@ -7,17 +7,29 @@
 # https://github.com/lucko/LuckPerms/wiki/Context
 
 
-# Provides the 'wg-region' context.
+# Provides the 'worldguard:region' and 'worldguard:in-region' contexts.
 # Returns the name of each WorldGuard region the player is currently in.
 #
-# e.g. wg-region=spawn
-worldguard: false
+# e.g. worldguard:in-region=true and worldguard:region=spawn
+worldguard-region: false
+
+# Provides the 'worldguard:flag-xxx' contexts.
+# Returns the value of each flag set by WorldGuard in the region the player is currently in.
+#
+# e.g. worldguard:flag-build=allow
+worldguard-flag: false
 
 # Provides the 'gamemode' context.
 # Returns the players current gamemode.
 #
 # e.g. gamemode=creative
 gamemode: false
+
+# Provides the 'whitelisted' context.
+# Returns if the player is whitelisted on the server or not.
+#
+# e.g. whitelisted=true
+whitelisted: false
 
 # Provides the 'dimension' context.
 # Returns the type of the players current world.
@@ -30,6 +42,12 @@ dimension: false
 #
 # e.g. team=pvp-blue
 team: false
+
+# Provides the 'has-played-before' context.
+# Returns if the player has connected to the server before, or if this is their first time.
+#
+# e.g. has-played-before=false
+has-played-before: false
 
 placeholderapi: false
 placeholderapi-placeholders:

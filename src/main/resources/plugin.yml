@@ -4,3 +4,4 @@ author: Luck
 main: me.lucko.extracontexts.ExtraContextsPlugin
 depend: [LuckPerms]
 softdepend: [WorldGuard, PlaceholderAPI]
+api-version: 1.13
