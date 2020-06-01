@@ -52,3 +52,9 @@ has-played-before: false
 placeholderapi: false
 placeholderapi-placeholders:
   allowflight: "%player_allow_flight%"
+
+# Provides the 'permission' context
+# Returns if the player has the specified permission
+#
+# e.g. permission=luckperms.*
+permission: false

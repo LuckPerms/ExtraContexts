@@ -3,6 +3,7 @@ package me.lucko.extracontexts;
 import me.lucko.extracontexts.calculators.DimensionCalculator;
 import me.lucko.extracontexts.calculators.GamemodeCalculator;
 import me.lucko.extracontexts.calculators.HasPlayedBeforeCalculator;
+import me.lucko.extracontexts.calculators.PermissionCalculator;
 import me.lucko.extracontexts.calculators.PlaceholderApiCalculator;
 import me.lucko.extracontexts.calculators.TeamCalculator;
 import me.lucko.extracontexts.calculators.WhitelistedCalculator;
@@ -26,6 +27,7 @@ import java.util.function.Supplier;
 
 public class ExtraContextsPlugin extends JavaPlugin implements CommandExecutor {
     private ContextManager contextManager;
+    private LuckPerms luckPerms;
     private final List<ContextCalculator<Player>> registeredCalculators = new ArrayList<>();
 
     @Override
@@ -35,6 +37,7 @@ public class ExtraContextsPlugin extends JavaPlugin implements CommandExecutor {
             throw new IllegalStateException("LuckPerms API not loaded.");
         }
         this.contextManager = luckPerms.getContextManager();
+        this.luckPerms = luckPerms;
 
         saveDefaultConfig();
         setup();
@@ -63,6 +66,7 @@ public class ExtraContextsPlugin extends JavaPlugin implements CommandExecutor {
         register("team", null, TeamCalculator::new);
         register("has-played-before", null, HasPlayedBeforeCalculator::new);
         register("placeholderapi", "PlaceholderAPI", () -> new PlaceholderApiCalculator(getConfig().getConfigurationSection("placeholderapi-placeholders")));
+        register("permission", "LuckPerms", () -> new PermissionCalculator(this.luckPerms));
     }
 
     private void register(String option, String requiredPlugin, Supplier<ContextCalculator<Player>> calculatorSupplier) {
