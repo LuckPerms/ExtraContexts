@@ -24,7 +24,7 @@ public class PermissionCalculator implements ContextCalculator<Player> {
 
         CachedPermissionData permissionData = user.getCachedData().getPermissionData(contextManager.getStaticQueryOptions());
         permissionData.getPermissionMap().forEach((node, value) -> {
-            if (value && permissionData.checkPermission(node).asBoolean()) consumer.accept(KEY, node);
+            if (permissionData.checkPermission(node).asBoolean()) consumer.accept(KEY, node);
         });
     }
 
