@@ -3,7 +3,7 @@ version: ${project.version}
 author: Luck
 main: me.lucko.extracontexts.ExtraContextsPlugin
 depend: [LuckPerms]
-softdepend: [WorldGuard, PlaceholderAPI]
+softdepend: [WorldGuard, PlaceholderAPI, Towny]
 api-version: 1.13
 
 commands:
