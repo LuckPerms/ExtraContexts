@@ -57,3 +57,55 @@ placeholderapi-placeholders:
 > allowflight=true
 
 ___
+#### TownyAdvanced
+#### `towny:in-town`
+Returns true if player's location within a Town
+
+e.g.
+
+> towny:in-town=false
+
+#### `towny:town`
+Returns name of the town (if any) at a player's current location
+
+e.g.
+
+> towny:town=
+>
+> towny:town=Atlantis
+
+**config:**
+```yaml
+towny-town: true
+```
+
+#### `towny:in-nation`
+Returns true if player's location within a Nation
+
+e.g.
+
+> towny:in-nation=true
+
+#### `towny:town`
+Returns name of the nation (if any) at a player's current location
+
+e.g.
+
+> towny:nation=Rome
+
+**config:**
+```yaml
+towny-nation: true
+```
+
+#### `towny:in-wilds`
+Returns true if player's location in the wilderness
+
+e.g.
+
+> towny:in-wilds=false
+
+**config:**
+```yaml
+towny-wilds: true
+```
