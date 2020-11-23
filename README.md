@@ -11,7 +11,7 @@ This plugin (ExtraContexts) provides a number of contexts for Bukkit servers. Th
 ## Downloads and Usage
 
 * The plugin can be downloaded from [Jenkins](https://ci.lucko.me/job/ExtraContexts/). [[direct link](https://ci.lucko.me/job/ExtraContexts/lastSuccessfulBuild/artifact/target/ExtraContexts.jar)]
-* To use it, just add it to your plugins folder and enable the contexts you want to use.
+* To use it, just add it to your plugins folder and enable the contexts you want to use. You have to enable each placeholder in `config.yml`
 
 ##### How do I check if it's working?
 A player's "current contexts" are listed when you run `/lp user <user> info`.
