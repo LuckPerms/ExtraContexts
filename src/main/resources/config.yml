@@ -19,23 +19,11 @@ worldguard-region: false
 # e.g. worldguard:flag-build=allow
 worldguard-flag: false
 
-# Provides the 'gamemode' context.
-# Returns the players current gamemode.
-#
-# e.g. gamemode=creative
-gamemode: false
-
 # Provides the 'whitelisted' context.
 # Returns if the player is whitelisted on the server or not.
 #
 # e.g. whitelisted=true
 whitelisted: false
-
-# Provides the 'dimension' context.
-# Returns the type of the players current world.
-#
-# e.g. dimension=nether
-dimension: false
 
 # Provides the 'team' context.
 # Returns the name of the team the players is in.

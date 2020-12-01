@@ -1,7 +1,5 @@
 package me.lucko.extracontexts;
 
-import me.lucko.extracontexts.calculators.DimensionCalculator;
-import me.lucko.extracontexts.calculators.GamemodeCalculator;
 import me.lucko.extracontexts.calculators.HasPlayedBeforeCalculator;
 import me.lucko.extracontexts.calculators.PlaceholderApiCalculator;
 import me.lucko.extracontexts.calculators.TeamCalculator;
@@ -57,9 +55,7 @@ public class ExtraContextsPlugin extends JavaPlugin implements CommandExecutor {
     private void setup() {
         register("worldguard-region", "WorldGuard", WorldGuardRegionCalculator::new);
         register("worldguard-flag", "WorldGuard", WorldGuardFlagCalculator::new);
-        register("gamemode", null, GamemodeCalculator::new);
         register("whitelisted", null, WhitelistedCalculator::new);
-        register("dimension", null, DimensionCalculator::new);
         register("team", null, TeamCalculator::new);
         register("has-played-before", null, HasPlayedBeforeCalculator::new);
         register("placeholderapi", "PlaceholderAPI", () -> new PlaceholderApiCalculator(getConfig().getConfigurationSection("placeholderapi-placeholders")));

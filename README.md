@@ -43,28 +43,12 @@ e.g.
 > worldguard:flag-build=allow
 
 ___
-#### `gamemode`
-Returns the players current gamemode
-
-e.g.
-
-> gamemode=creative
-
-___
 #### `whitelisted`
 Returns if the player is whitelisted on the server or not
 
 e.g.
 
 > whitelisted=true
-
-___
-#### `dimension`
-Returns the type of the players current world
-
-e.g.
-
-> dimension=nether
 
 ___
 #### `team`
