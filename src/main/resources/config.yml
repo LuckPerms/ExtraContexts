@@ -25,6 +25,12 @@ worldguard-flag: false
 # e.g. whitelisted=true
 whitelisted: false
 
+# Provides the 'is-op' context.
+# Returns if the player is a server operator or not.
+#
+# e.g. is-op=true
+is-op: false
+
 # Provides the 'team' context.
 # Returns the name of the team the players is in.
 #
