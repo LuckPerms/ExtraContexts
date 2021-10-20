@@ -3,6 +3,9 @@ package me.lucko.extracontexts;
 import me.lucko.extracontexts.calculators.HasPlayedBeforeCalculator;
 import me.lucko.extracontexts.calculators.PlaceholderApiCalculator;
 import me.lucko.extracontexts.calculators.TeamCalculator;
+import me.lucko.extracontexts.calculators.TownyNationCalculator;
+import me.lucko.extracontexts.calculators.TownyTownCalculator;
+import me.lucko.extracontexts.calculators.TownyWildsCalculator;
 import me.lucko.extracontexts.calculators.WhitelistedCalculator;
 import me.lucko.extracontexts.calculators.WorldGuardFlagCalculator;
 import me.lucko.extracontexts.calculators.WorldGuardRegionCalculator;
@@ -53,6 +56,9 @@ public class ExtraContextsPlugin extends JavaPlugin implements CommandExecutor {
     }
 
     private void setup() {
+        register("towny-town", "Towny", TownyTownCalculator::new);
+        register("towny-nation", "Towny", TownyNationCalculator::new);
+        register("towny-wilds", "Towny", TownyWildsCalculator::new);
         register("worldguard-region", "WorldGuard", WorldGuardRegionCalculator::new);
         register("worldguard-flag", "WorldGuard", WorldGuardFlagCalculator::new);
         register("whitelisted", null, WhitelistedCalculator::new);

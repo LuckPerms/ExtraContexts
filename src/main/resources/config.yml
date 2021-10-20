@@ -40,3 +40,20 @@ has-played-before: false
 placeholderapi: false
 placeholderapi-placeholders:
   allowflight: "%player_allow_flight%"
+
+### Addition: Towny Contexts
+# Provides the 'towny:town' and 'towny:in-town' contexts.
+# Returns the name of the Town the player is currently in.
+#
+# e.g. towny:in-town=true and towny:town=townName
+towny-town: false
+# Provides the 'towny:town' and 'towny:in-nation' contexts.
+# Returns the name of the Nation the player is currently in.
+#
+# e.g. towny:in-nation=true and towny:nation=nationName
+towny-nation: false
+# Provides the 'towny:in-wilds' context.
+# Returns if the player is currently in the wilderness.
+#
+# e.g. towny:in-wilds=true
+towny-wilds: false

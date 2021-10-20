@@ -108,12 +108,22 @@
             <version>2.9.2</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.TownyAdvanced</groupId>
+            <artifactId>Towny</artifactId>
+            <version>0.96.2.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <repositories>
         <repository>
             <id>luck-repo</id>
             <url>https://repo.lucko.me/</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
