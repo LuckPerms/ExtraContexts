@@ -38,7 +38,7 @@
                 <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>/</directory>
+                <directory>${project.basedir}</directory>
                 <filtering>false</filtering>
                 <includes>
                     <include>LICENSE.txt</include>
