@@ -26,6 +26,9 @@ public class WorldGuardFlagCalculator implements ContextCalculator<Player> {
     @Override
     public void calculate(Player target, ContextConsumer consumer) {
         Map<IWrappedFlag<?>, Object> flags = this.worldGuard.queryApplicableFlags(target, target.getLocation());
+        if (flags == null) {
+            return;
+        }
         flags.forEach((flag, value) -> {
             if (invalidValue(value)) {
                 return;
