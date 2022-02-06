@@ -1,5 +1,6 @@
 package me.lucko.extracontexts.calculators;
 
+import net.luckperms.api.context.Context;
 import net.luckperms.api.context.ContextCalculator;
 import net.luckperms.api.context.ContextConsumer;
 import net.luckperms.api.context.ContextSet;
@@ -62,7 +63,7 @@ public class WorldGuardFlagCalculator implements ContextCalculator<Player> {
     }
 
     private static boolean invalidValue(Object value) {
-        return value == null || value instanceof Location || value instanceof Vector;
+        return value == null || value instanceof Location || value instanceof Vector || (value instanceof String && !Context.isValidValue(((String) value)));
     }
 
 }
