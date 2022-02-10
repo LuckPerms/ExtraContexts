@@ -51,6 +51,14 @@ e.g.
 > whitelisted=true
 
 ___
+#### `is-op`
+Returns if the player is a server operator or not
+
+e.g.
+
+> is-op=true
+
+___
 #### `team`
 Returns the name of the team the players is in
 
