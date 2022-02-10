@@ -16,6 +16,11 @@ worldguard-region: false
 # Provides the 'worldguard:flag-xxx' contexts.
 # Returns the value of each flag set by WorldGuard in the region the player is currently in.
 #
+# WARNING: WorldGuard flags can sometimes depend on permission/group status, which
+# really makes them unsuitable for use as a permission context.
+# With that in mind: use this calculator with caution, and if possible, find a different
+# context/approach to use. :)
+#
 # e.g. worldguard:flag-build=allow
 worldguard-flag: false
 

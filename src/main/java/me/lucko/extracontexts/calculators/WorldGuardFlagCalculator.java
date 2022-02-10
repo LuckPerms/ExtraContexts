@@ -19,20 +19,42 @@ import org.codemc.worldguardwrapper.region.IWrappedRegion;
 
 import java.util.Map;
 
+// @Deprecated
 public class WorldGuardFlagCalculator implements ContextCalculator<Player> {
+
+    // calling worldGuard.queryApplicableFlags can sometimes cause Vault lookups, which
+    // would make a recursive call to this calculator. this breaks the 3rd rule that
+    // ContextCalculators should follow.
+    //
+    // see for more info: https://github.com/LuckPerms/ExtraContexts/issues/27
+    //
+    // the safest/best solution would be to remove this calculator entirely, but this
+    // ThreadLocal hack is a good enough work around for users who already
+    // depend on it.
+    private static final ThreadLocal<Boolean> IN_PROGRESS = ThreadLocal.withInitial(() -> false);
+
     private static final String KEY = "worldguard:flag-";
 
     private final WorldGuardWrapper worldGuard = WorldGuardWrapper.getInstance();
 
     @Override
     public void calculate(Player target, ContextConsumer consumer) {
-        Map<IWrappedFlag<?>, Object> flags = this.worldGuard.queryApplicableFlags(target, target.getLocation());
-        flags.forEach((flag, value) -> {
-            if (invalidValue(value)) {
-                return;
-            }
-            consumer.accept(KEY + flag.getName(), value.toString());
-        });
+        if (IN_PROGRESS.get()) {
+            return;
+        }
+
+        IN_PROGRESS.set(true);
+        try {
+            Map<IWrappedFlag<?>, Object> flags = this.worldGuard.queryApplicableFlags(target, target.getLocation());
+            flags.forEach((flag, value) -> {
+                if (invalidValue(value)) {
+                    return;
+                }
+                consumer.accept(KEY + flag.getName(), value.toString());
+            });
+        } finally {
+            IN_PROGRESS.set(false);
+        }
     }
 
     @Override
