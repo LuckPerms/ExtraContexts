@@ -13,9 +13,15 @@ public class TeamCalculator implements ContextCalculator<Player> {
 
     @Override
     public void calculate(Player target, ContextConsumer consumer) {
-        Team team = Bukkit.getScoreboardManager().getMainScoreboard().getTeam(target.getName());
-        if (team != null) {
-            consumer.accept(KEY, team.getName());
+        String teamName = null;
+        for (Team team : Bukkit.getScoreboardManager().getMainScoreboard().getTeams()) {
+            if (team.hasEntry(target.getName())) {
+                teamName = team.getName();
+                break;
+            }
+        }
+        if (teamName != null) {
+            consumer.accept(KEY, teamName);
         }
     }
 
